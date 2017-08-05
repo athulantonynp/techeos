@@ -169,7 +169,7 @@
 
                                     @Override
                                     public boolean shouldSkipField(FieldAttributes f) {
-                                        return f.getAnnotation(Exclude.class) != null;
+                                        return f.getAnnotation(ExcludeThisField.class) != null;
                                     }
 
                                     @Override
