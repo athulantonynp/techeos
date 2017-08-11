@@ -698,6 +698,7 @@ blockquote {
 
 .list ul {
     margin-top: 15px;
+
 }
 
 .list li {
@@ -1747,3 +1748,6 @@ blockquote {
 .uipasta-credit a:hover {
     color: #333333;
 }
+
+/* Custom Styles defined by Athul */
+
