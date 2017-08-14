@@ -46,7 +46,15 @@
             e.preventDefault();
         });
 
+        $("a#apk_link_1").bind('click', function () {
+        window.location.replace("http://stackoverflow.com");
+        });
+        $("a#apk_link_2").bind('click', function () {
 
+        });
+        $("a#apk_link_3").bind('click', function () {
+
+        });
 
 
        /* Scroll To Top */
@@ -192,5 +200,6 @@
 
 
             });
+
 
    })(jQuery);
