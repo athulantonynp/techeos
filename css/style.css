@@ -91,10 +91,15 @@ b {
 p {
     font-size: 14px;
     font-family: "Poppins", sans-serif;
+
 }
 
 button {
     background-color: transparent;
+}
+
+h8{
+    color: #1abc9c;
 }
 
 *:focus {
