@@ -560,6 +560,12 @@ div.blog-post {
     margin-top: 10px;
 }
 
+.blog-post-no-stretch .post-image p {
+    text-align: center;
+    width: 50%;
+    height: 50%
+}
+
 .blog-post .post-image a {
     font-weight: 600;
 }
