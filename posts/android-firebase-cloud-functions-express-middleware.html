@@ -15,21 +15,28 @@
     <meta name="copyright" content="TechEOS">
     <meta name="robots" content="index,follow">
     <meta name="google-site-verification" content="pgEG4IJCNjR9R04Jk6UByLm--5HUOJtrojTlnb3CWk4" />
-    <meta name="description" content="Android development: Building for billions-How can make your app supporting for billions." itemprop="description">
-    <meta property="og:tags" content="Android Development,Android oreo,
-      oreo updates,job intent services,background execution limits,android,oreo background execution limits,
-      oreo services,sdk 26,job dispatcher library,technical blog,blog,android studio",android developer,android app,android app development">
-    <meta name="keywords" content="Android Development,Android oreo,
-      oreo updates,android intentservice,android start service,background execution limits,android,oreo background execution limits,android service,apps running in background android,intentservice,android 8 features ,android oreo phones,
-      oreo services,sdk 26,job dispatcher library,technical blog,blog,android studio,Android Development,Android OS,Building for billions, Android app optimizations,android o,android tutorial,android developer,android app,android app development">
-      <meta property="og:title" content="JobIntentService is your saviour!" />
-      <meta property="og:description" content="This article shows how to work with oreo's new JobIntentService which is an effective replacement for IntentService class.">
+    <meta name="description" content="Write your firebase functions more securely using express middleware" itemprop="description">
+    <meta property="og:tags" content="Android Development,Firebase,firebase console,
+    firebase tutorial,firebase android,firebase functions,firebase database,firebase hosting,
+    firebase analytics,firebase android tutorial,firebase admin,deploy a firebase app,firebase cloud functions,
+    express js,middleware,server middleware,javascript,js,js tutorial,node js,node js tutorial,
+    node js documentation,node js interview questions,node js express,node js framework,node js api,
+    node js api tutorial">
+    <meta name="keywords" content="Android Development,Firebase,firebase console,
+    firebase tutorial,firebase android,firebase functions,firebase database,firebase hosting,
+    firebase analytics,firebase android tutorial,firebase admin,deploy a firebase app,firebase cloud functions,
+    express js,middleware,server middleware,javascript,js,js tutorial,node js,node js tutorial,
+    node js documentation,node js interview questions,node js express,node js framework,node js api,
+    node js api tutorial">
+      <meta property="og:title" content="Firebase functions more securely using express middleware" />
+      <meta property="og:description" content="Write your firebase functions more securely using express middleware">
       <meta property="og:type" content="article" />
-      <meta property="og:image" content="www.techeos.com/images/blog/nougat_notifications.jpg" />
+      <meta property="og:image" content="www.techeos.com/images/blog/firebase_icon.png" />
+      <meta property="twitter:image" content="www.techeos.com/images/blog/firebase_icon.png" />
       <meta property="og:site_name" content="TechEOS" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes">
 
-    <title>JobIntentService is your saviour! | TechEOS</title>
+    <title>Express middleware in Firebase cloud functions. | TechEOS</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../images/favicon/favicon.ico">
@@ -152,69 +159,105 @@
 
                                 <!-- Post Headline Start -->
                                 <div class="post-title">
-                                    <h1>JobIntentService is your saviour!</h1>
+                                    <h1>Express middleware in Firebase cloud functions.</h1>
                                    </div>
                                    <!-- Post Headline End -->
 
 
                                 <!-- Post Detail Start -->
                                 <div class="post-info">
-                                    <span>November 14, 2017 / by <a href="#" target="_blank">Athul Antony</a></span>
+                                    <span>April 21, 2018 / by <a href="#" target="_blank">Athul Antony</a></span>
                                    </div>
                                    <!-- Post Detail End -->
-                                   <p><a href="https://developer.android.com/reference/android/app/IntentService.html" target="_blank">
-                                     IntentService.class </a> is an extensively used service class in Android because of its simplicity and robust in nature. Since the release of Oreo, made things more difficult for developers to use this class in a full swing for their applications. For those who are relied on IntentService class, from oreo onwards you cannot simply use this class. I was also searching for an exact and efficient alternative for this class so that I can change old intentservice class to that. The search ended up in JobIntentService which is exactly does the same job of IntentService by using new Job APIs of oreo. This class is available in the support library of SDK 26. 
+                                   <p>
 
+
+                              Firebase cloud functions are the really helpful tool for mobile developers which lets them build Android/IOS apps without having the ease of maintaining a  server. Cloud functions have heavily relied on famous Javascript framework called Node.Js. It's event-driven and non-blocking I/O model architecture makes it more efficient and lightweight. You can easily trigger HTTP functions in firebase cloud functions using the node.js environment. 
+                              </br> </br>
+                                <img src="/images/blog/firebase.png"  width="800" height="350" alt="Firebase logo,Firebase cloud functions,firebase,android">
+                              </br></br></br>
+                              But for a production-ready application which has many HTTP function triggers, Maintaining identity of every HTTP requests is a pain point. For example, You may have to check the existence or state of the requesting user/account for all the HTTP requests. This is the plot where middlewares come into action for you. In simpler terms, Middleware is a framework/bridge which connects or performs some functions in between the client and server. A middleware can process the request and response as well as a server does. Express is a web application framework developed for Node.js which can be maintained as a middleware in Firebase cloud functions.This tutorial will help you to implement a simple middleware application using express web application framework. This is a beginner friendly tutorial to the Firebase Cloud Functions. First, Setup a firebase cloud function app on your machine as described in <a href="https://firebase.google.com/docs/functions/get-started" target="_blank"> this</a> official document.
                                    </p>
                                   
-                                 <p>Implementation of JobIntentService class is a simple process. Also, You can easily migrate from IntentServiceClass to JobIntentServiceClass.For device targeting SDK 26 or later, This class’ works are dispatched via JobScheduler class and for SDK 25 or below devices, It uses  <h8>Context.startService() </h8> (Same as in IntentService). First, compile the dependency on your app level gradle.
+                                  <p>
+                                    After setting up the Firebase CLI and Cloud functions project directory, You can head up to into the index.js file of functions folder in root directory of the project.As you go through the official document, You can see that setting up an endpoint and it's handler functions is easy to implement and push it to the original server. In below snippet, I have created a function which returns a sample JSON response to the requesting client. 
                                   </p>
-                                  </br>
-                                 
-                                   <blockquote class="margin-top-40 margin-bottom-40">
-                                  <p> compile <b>'com.android.support:support-compat:27.0.0'</b></p>
-                                   </blockquote>
+                           
+                                  <script src="https://gist.github.com/athulantonynp/d5c82bec44c2b5f6799b7acd40c16c4e.js"></script>
 
-                                  <p>Now create a class file which extends JobIntentService.Java class. Implement the overridden method.</p>
+                                    </br>
+                                   <p>
+                                     Okay, Now everything works fine! I get a sample response in JSON format when the client Android app makes the call. Now What If I need to validate the client's identity before I make the response? The function should not trigger when a client is a trespasser. So I should call a validate function before the actual function right? This is where express.JS middleware comes into help for in your Firebase cloud function project. 
+                                   </p>
 
-                                  <div class="margin-top-40 margin-bottom-40">
+                                 </br>
+                                 <p>
+                                   Okay, let's start implementing express js. Initially, as like an Android project, we have to add a dependency of express on our project. For that, head to root/functions/package.json file. This is where you should declare app dependencies. Add the dependency same as like this. 
+                                 </p>
+                                 <div class="margin-top-40 margin-bottom-40">
                                       <pre class="brush: js">
-                                        /**
-                                        * JobIntentClass written in Kotlin
-                                        **/
 
-                                        class MyApiService : JobIntentService() {
-
-                                        //Constant ID to recognise the job
-
-                                        val JOB_ID = 1000
-
-
-                                        fun enqueueWork(context: Context, work: Intent) {
-
-                                            enqueueWork(context, FirebaseApiService::class.java, JOB_ID, work)
-                                        }
-
-                                        override fun onHandleWork(intent: Intent) {
-
-                                                //do your work here.
-                                        }
+                                            "dependencies": {
+                                                "firebase-admin": "~5.8.1",
+                                                "express": "^4.15.2",
+                                                "firebase-functions": "^0.8.1"
+                                              }
 
                                     </pre>
                                   </div>
-                                    <br>
-                                    <p>The static method called <h8>enqueueWork(Context context, Intent work) </h8> is the convenience method used for enqueuing the work. Every service will have a unique ID which is defined by you. Here is a full gist of a sample service class. </p> <br>
+                                  <p>
+                                    Or else, You can simply run the below command in your functions folder. 
+                                  </p>
 
-                                    <script src="https://gist.github.com/athulantonynp/736e59e8ada8dddb4fb546f01f385893.js"></script>
+                                   <blockquote class="margin-top-40 margin-bottom-40">
+                            <p> <b>yarn add express</b></p>
+                          </blockquote>
 
+                                  <p>
+                                    We have completed our initial setups now let's get into the code. 
+                                    In your index.js file initiate express instance below like this.
+                                    
+                                   </br> <b>const express = require('express');</b>  </br>
+
+                                    And create the app instance ,
+
+                                     </br> <b>const app = express();</b>
+                                  </p>
+                                    <p>
+                                      Now here comes the magic! Create a function called validate() which is a constant with parameters of the request, response and next. next() simply allows the next route handler in line to handle the request.It passes control to the next matching route.
+                                      After the client validation in middleware, next() will take the request to the actual function or else, It will throw error response to the user. You can implement your DB related queries for searching the user inside this function scope.
+
+                                    </p>
                                     </br>
-                                    <p>While dozing on the device, Service will be subject to normal policies of a Job class ie, The job will get delayed or will not run. This is applicable to Oreo on later devices. But in pre oreo devices, The service will run under normal conditions but it is more likely to kill on memory pressure situations. While running on post Oreo devices, you do not need to take care of WakefulBroadcastRecievers. They are handled by the system itself.
-                                    <br><br><br>
-                                    Happy coding!
+                                      <script src="https://gist.github.com/athulantonynp/fbf80dbd3822aa54ccd829e68b82d904.js"></script>
+                                    </br>
+                                     </br>
 
-                                      </p>
+                                    <p>Now we have to make use of this middleware function with the app instance. So call 
+                                      </br>
+                                      <b> app.use(validateFirebaseRequest);<b> </br></p>
+
+                                        <p>
+                                          Now let's define our routed or actual endpoint. We can use any of <b> app.all(), app.get(), app.post(), app.delete() and app.put() </b>methods . All those GET,POST,DELETE,PUT annotations of retrofit  library call is recieved by these functions.
+                                        </p>
+
+                                        <script src="https://gist.github.com/athulantonynp/c50caf1abf13037223e388c0e354b9b0.js"></script>
+                                        <p>
+                                          Last but not least, We should make the request to Firebase CF to make use of our middleware in the project by adding the below line at the end of the index.js file.
+
+                                        </p>
+
+
+                                           <blockquote class="margin-top-40 margin-bottom-40">
+                                    <p>exports.api=functions.https.onRequest(app);</p>
+                                  </blockquote>
+                                  <p>
+                                    Finally, Deploy our project. Your endpoint of contact from the client app will be 
+                                    BASE_URL/api/hello/ for this example. This is how you can easily implement a middleware in Firebase cloud functions. 
+
+                                    Happy coding!
+                                  </p>
                                     </div> </div>
-  
                               </div>
 
 
