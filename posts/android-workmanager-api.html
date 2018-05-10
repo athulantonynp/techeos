@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO -->
+    <meta name="description" content="150 words">
+    <meta name="author" content="Athul Antony">
+    <meta name="url" content="www.techeos.com">
+    <meta name="copyright" content="TechEOS">
+    <meta name="robots" content="index,follow">
+    <meta name="google-site-verification" content="pgEG4IJCNjR9R04Jk6UByLm--5HUOJtrojTlnb3CWk4" />
+    <meta name="description" content="Android WorkManager API is here finally!" itemprop="description">
+    <meta property="og:tags" content="Android WorkManager,WorkManager API,Jetpack,
+    Google IO 2018,I/O 2018,Google IO,WorkManager API,Job API,JobScheduler API,
+    android jetpack joyride hack,google io 2018 keynote,google io,google io extended,android p,sdk 28,android developer,android app,android app development">
+    <meta name="keywords" content="Android WorkManager,WorkManager API,Jetpack,
+    Google IO 2018,I/O 2018,Google IO,WorkManager API,Job API,JobScheduler API,
+    android jetpack joyride hack,google io 2018 keynote,google io,google io extended,android p,sdk 28,android developer,android app,android app development
+      oreo services,sdk 26,job dispatcher library,technical blog,blog,android studio,Android Development,Android OS,Building for billions, Android app optimizations,android o,android tutorial,android developer,android app,android app development">
+      <meta property="og:title" content="Android WorkManager API is here finally!" />
+      <meta property="og:description" content="This article shows how to work with android's new WorkManager API which is more effective one for background scheduling">
+      <meta property="og:type" content="article" />
+      <meta property="og:image" content="www.techeos.com/images/blog/jetpack.png" />
+      <meta property="og:site_name" content="TechEOS" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=yes">
+
+    <title>Android WorkManager API is here finally! | TechEOS</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="images/favicon/apple-touch-icon.png">
+
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="../css/plugin.css">
+
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <!-- Google Web Fonts  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700">
+
+    <!-- Syntax Highlighter  -->
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../css/syntax/shThemeDefault.css">
+
+
+    <!-- HTML5 shiv and Respond.js support IE8 or Older for HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+  </head>
+
+ <body>
+
+   <!--Google Analytics tracking code-->
+   <script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-104487467-1', 'auto');
+ ga('send', 'pageview');
+
+ </script>
+
+	 <!-- Preloader Start -->
+     <div class="preloader">
+	   <div class="rounder"></div>
+      </div>
+      <!-- Preloader End -->
+
+
+
+
+    <div id="main">
+        <div class="container">
+            <div class="row">
+
+
+
+                 <!-- About Me (Left Sidebar) Start -->
+                  <div class="col-md-3">
+                   <div class="about-fixed">
+
+                     <div class="my-pic">
+                        <img src="../images/pic/my-pic.png" alt="">
+                        <a href="javascript:void(0)" class="collapsed" data-target="#menu" data-toggle="collapse"><i class="icon-menu menu"></i></a>
+                         <div id="menu" class="collapse">
+                           <ul class="menu-link">
+                              <!-- <li><a href="about.html">About</a></li>
+                               <li><a href="work.html">Work</a></li>
+                               <li><a href="contact.html">Contact</a></li> -->
+                                <li>About</li>
+                               <li>Work</a></li>
+                               <li>Contact</li>
+                            </ul>
+                         </div>
+                        </div>
+
+
+
+                      <div class="my-detail">
+
+                        <div class="white-spacing">
+                            <h1>Blog by Athul Antony</h1>
+                            <span>Android Developer @ <a href="http://entri.me">Entri.Inc</a></span>
+
+                        </div>
+
+                       <ul class="social-icon">
+                         <li><a href="https://www.facebook.com/athulantony" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                         <li><a href="https://twitter.com/athulantonynp" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                         <li><a href="https://www.linkedin.com/in/athul-antony-np-5242b4104/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                         <li><a href="https://github.com/athulantonynp" target="_blank" class="github"><i class="fa fa-github"></i></a></li>
+                        </ul>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- About Me (Left Sidebar) End -->
+
+
+
+
+
+                 <!-- Blog Post (Right Sidebar) Start -->
+                 <div class="col-md-9">
+                    <div class="col-md-12 page-body">
+                    	<div class="row">
+
+
+                            <div class="sub-title">
+                           		<a href="../index.html" title="Go to Home Page"><h2>Back Home</h2></a>
+                                <a href="#comment" class="smoth-scroll"><i class="icon-bubbles"></i></a>
+                             </div>
+
+
+                            <div class="col-md-12 content-page">
+                              <div class="col-md-12 blog-post">
+
+
+                                <!-- Post Headline Start -->
+                                <div class="post-title">
+                                    <h1>Android WorkManager API is here finally!</h1>
+                                   </div>
+                                   <!-- Post Headline End -->
+
+
+                                <!-- Post Detail Start -->
+                                <div class="post-info">
+                                    <span>May 10, 2018 / by <a href="#" target="_blank">Athul Antony</a></span>
+                                   </div>
+                                   <!-- Post Detail End -->
+                                   <p>
+                                    On Google I/O of 2017, They announced many background task restrictions for SDK 27. Many of the developers migrated their code to support new background restrictions using the new Job APIs and along with Firebase's Job Dispatcher API for backward compatibility for the same. This resulted in many confusions among developers to choose appropriate API and implement them also.  But in this year's Google I/O, They have announced <h8>WorkManager API</h8> which is a part of Android Jetpack which acts as a one-stop solution for all background tasks. 
+
+                                   </p>
+                                  
+                                 <p>Main advantages of this API is listed here,</p>
+                                  <p>
+                                    <blockquote class="margin-top-40 margin-bottom-40">
+                                    <ul type="circle">
+                                    <li> It can act as both asynchronous as well as periodic one.</li>
+                                    <li> It has support for device constraints such as network conditions, storage space, and charging status as like in Job API.</li>
+                                    <li> Chaining and parallel working of jobs possible.</li>
+                                    <li>All the way backward support to API 14!</li>
+                                    <li>Chooses appropriate Job API according to device constraints.</li>
+                                    <li> Works on non-Google Play services installed devices.</li>
+                                </ul>
+                              </blockquote>
+                              </br>
+                              <p>
+                              WorkManager is built on top of a few APIs such as JobScheduler, FirebaseJobDispatcher and AlarmManager etc., Simply, WorkManager is wrapper class for all APIs with some cool extra features.
+                                  </p>
+
+                                  </br>
+
+                                  <p>
+                                    Let's start! Add dependency for WorkManager on your app level build.gradle file.
+                                  </p>
+                                 
+                                   <blockquote class="margin-top-40 margin-bottom-40">
+                                  <p>  implementation <h8>'android.arch.work:work-runtime:1.0.0-alpha01'</h8></b></p>
+                                   </blockquote>
+
+                                  <p>You can create your WorkManager class by extending Worker.class. The overridden method <h8>doWork()</h8> is the function you have to implement your logic. You can make use of this API if your work needs more time to process or your work should be carried on another thread. The method should return any of the WorkerResult public variables. If you return  <h8>WorkerResult.RETRY</h8>, The work will be retried again. SUCCESS is used for indicating the work is completed.</p>
+
+                                  <script src="https://gist.github.com/athulantonynp/388335130ea51b24083dac7303399c74.js"></script>
+                                </br>
+
+                                <p>
+                                  A work can be a periodic or single time in terms of its execution. As I have mentioned earlier, WorkManager API has the capability for maintaining it. You can start your work by using a <a href="https://developer.android.com/reference/androidx/work/OneTimeWorkRequest.html" target="_blank"> OneTimeWorkRequest </a> instance for single time execution.Or, You can start your work by using <a href="https://developer.android.com/reference/androidx/work/PeriodicWorkRequest.html" target="_blank"> PeriodicWorkRequest</a>instance for periodically recurring tasks. 
+                                </p>
+                                <script src="https://gist.github.com/athulantonynp/8b9a9bbbf2f4f4bb766bf69a67b9249a.js"></script>
+                              </br>
+                              <p>
+                                Same as like in Job APIs, We can set the device constraints using Constraints instance. 
+                              </p>
+                              <script src="https://gist.github.com/athulantonynp/17be8eccd12a4adae27325e988c54ca3.js"></script>
+                            </br>
+                            <p>
+                              As I have mentioned earlier, You can chain works together in a sequential order. Let's say, we have work1,work2,work3 instances. We can start them in sequence just like below code.
+                            </p>
+                            <script src="https://gist.github.com/athulantonynp/fcfb38f63ecec368733ff244c01ebcfd.js"></script>
+                            <p>
+                              Passing multiple works in <h8>beginWith()</h8> will result in those works to run parallel also. You can view the code in the above snippet.
+                            </p>
+                          </br>
+                            <p>
+                              More flexible right? You can refer official <a href="https://developer.android.com/topic/libraries/architecture/workmanager" target="#_blank"> doc</a> for more things.
+                            </p>
+                                    Happy coding!
+
+                                      </p>
+                                    </div> </div>
+  
+                              </div>
+
+
+
+
+                                  <!-- Post Author Bio Box Start -->
+                                  <div class="about-author margin-top-70 margin-bottom-50">
+
+                                    <div class="picture">
+                                      <img src="../images/blog/author_new.jpg" class="img-responsive" alt="">
+                                     </div>
+
+                                    <div class="c-padding">
+                                       <h3>Article By <a href="../index.html" target="_blank" data-toggle="tooltip" data-placement="top" title="Visit Athul's Website">Athul Antony</a></h3>
+                                       <p>Liked my post or having doubts ? Mail me at <a href="mailto:someone@example.com?Subject=TechEOS|1615" target="_top"> athul@entri.me </a></p>
+                                      </div>
+                                    </div>
+                                    <!-- Post Author Bio Box End -->
+
+
+
+
+
+
+                       <!-- Footer Start -->
+                       <div class="col-md-12 page-body margin-top-50 footer">
+                          <footer>
+                          <ul class="menu-link">
+                               <li><a href="../index.html">Home</a></li>
+                               <li><a href="index.html">About</a></li>
+                               <li><a href="../index.html">Work</a></li>
+                               <li><a href="../index.html">Contact</a></li>
+                            </ul>
+
+                          <p>© Copyright 2017 TechEOS. All rights reserved</p>
+
+
+						  <!-- UiPasta Credit Start -->
+                          <div class="uipasta-credit">Design By <a href="http://www.uipasta.com" target="_blank">UiPasta</a></div>
+                          <!-- UiPasta Credit End -->
+
+
+                         </footer>
+                       </div>
+                       <!-- Footer End -->
+
+
+                  </div>
+                  <!-- Blog Post (Right Sidebar) End -->
+
+            </div>
+         </div>
+      </div>
+
+
+    <!-- Back to Top Start
+    <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up"></i></a>
+     Back to Top End -->
+
+
+    <!-- All Javascript Plugins  -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/plugin.js"></script>
+
+    <!-- Main Javascript File  -->
+    <script type="text/javascript" src="../js/scripts.js"></script>
+
+    <!-- Syntax Highlighter Javascript File  -->
+    <script type="text/javascript" src="../js/syntax/shCore.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushCss.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPerl.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPhp.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPlain.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushPython.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushRuby.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushSql.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushVb.js"></script>
+    <script type="text/javascript" src="../js/syntax/shBrushXml.js"></script>
+
+	<!-- Syntax Highlighter Call Function -->
+	<script type="text/javascript">
+		SyntaxHighlighter.config.clipboardSwf = '../js/syntax/clipboard.swf';
+		SyntaxHighlighter.all();
+	</script>
+
+
+   </body>
+ </html>
